@@ -70,9 +70,6 @@ public class GeneratorServiceImpl implements GeneratorService {
 
     @Override
     public void download(GenConfigInfo genConfig, List<ColumnInfo> columns, HttpServletRequest request, HttpServletResponse response) {
-        if (genConfig.getId() == null) {
-            throw new RuntimeException("请先配置生成器");
-        }
         try {
             File file = new File(GenUtil.download(columns, genConfig));
             String zipPath = file.getPath() + ".zip";

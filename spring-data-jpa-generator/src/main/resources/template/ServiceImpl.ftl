@@ -65,7 +65,7 @@ public class ${className}ServiceImpl extends AbstractBaseApiServiceImpl implemen
     @Override
     @Transactional
     public ${className}Info findById(${pkColumnType} ${pkChangeColName}) {
-        ${className} entity = ${changeClassName}Repository.findById(id).orElseGet(${className}::new);
+        ${className} entity = ${changeClassName}Repository.findById(${pkChangeColName}).orElseGet(${className}::new);
         return BeanMapping.map(entity, ${className}Info.class);
     }
 

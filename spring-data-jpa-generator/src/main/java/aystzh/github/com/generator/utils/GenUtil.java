@@ -1,11 +1,11 @@
 package aystzh.github.com.generator.utils;
 
-import aystzh.github.com.generator.tools.StringUtils;
 import aystzh.github.com.generator.vo.ColumnInfo;
 import aystzh.github.com.generator.vo.GenConfigInfo;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.template.*;
+import com.google.common.base.CaseFormat;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ObjectUtils;
 
@@ -140,13 +140,18 @@ public class GenUtil {
         // 表名
         genMap.put("tableName", GenConfigInfo.getTableName());
         // 大写开头的类名
-        String className = StringUtils.toCapitalizeCamelCase(GenConfigInfo.getTableName());
+        // String className = StringUtils.toCapitalizeCamelCase(GenConfigInfo.getTableName());
+        String className = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, GenConfigInfo.getTableName());
+
         // 小写开头的类名
-        String changeClassName = StringUtils.toCamelCase(GenConfigInfo.getTableName());
+        //String changeClassName = StringUtils.toCamelCase(GenConfigInfo.getTableName());
+        String changeClassName = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, GenConfigInfo.getTableName());
         // 判断是否去除表前缀
-        if (StringUtils.isNotEmpty(GenConfigInfo.getPrefix())) {
-            className = StringUtils.toCapitalizeCamelCase(StrUtil.removePrefix(GenConfigInfo.getTableName(), GenConfigInfo.getPrefix()));
-            changeClassName = StringUtils.toCamelCase(StrUtil.removePrefix(GenConfigInfo.getTableName(), GenConfigInfo.getPrefix()));
+        if (StrUtil.isNotEmpty(GenConfigInfo.getPrefix())) {
+            //className = StringUtils.toCapitalizeCamelCase(StrUtil.removePrefix(GenConfigInfo.getTableName(), GenConfigInfo.getPrefix()));
+            className = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, GenConfigInfo.getTableName());
+            changeClassName = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, StrUtil.removePrefix(GenConfigInfo.getTableName(), GenConfigInfo.getPrefix()));
+            // changeClassName = StringUtils.toCamelCase(StrUtil.removePrefix(GenConfigInfo.getTableName(), GenConfigInfo.getPrefix()));
         }
         // 保存类名
         genMap.put("className", className);
@@ -188,9 +193,12 @@ public class GenUtil {
             // 主键类型
             String colType = ColUtil.cloToJava(column.getColumnType());
             // 小写开头的字段名
-            String changeColumnName = StringUtils.toCamelCase(column.getColumnName());
+            //String changeColumnName = StringUtils.toCamelCase(column.getColumnName());
+            String changeColumnName = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, column.getColumnName());
+
             // 大写开头的字段名
-            String capitalColumnName = StringUtils.toCapitalizeCamelCase(column.getColumnName());
+            //String capitalColumnName = StringUtils.toCapitalizeCamelCase(column.getColumnName());
+            String capitalColumnName = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, column.getColumnName());
             if (PK.equals(column.getKeyType())) {
                 // 存储主键类型
                 genMap.put("pkColumnType", colType);
@@ -212,7 +220,7 @@ public class GenUtil {
                 genMap.put("auto", true);
             }
             // 主键存在字典
-            if (StringUtils.isNotBlank(column.getDictName())) {
+            if (StrUtil.isNotBlank(column.getDictName())) {
                 genMap.put("hasDict", true);
                 dicts.add(column.getDictName());
             }
@@ -228,7 +236,7 @@ public class GenUtil {
             // 表单显示
             listMap.put("formShow", column.getFormShow());
             // 表单组件类型
-            listMap.put("formType", StringUtils.isNotBlank(column.getFormType()) ? column.getFormType() : "Input");
+            listMap.put("formType", StrUtil.isNotBlank(column.getFormType()) ? column.getFormType() : "Input");
             // 小写开头的字段名称
             listMap.put("changeColumnName", changeColumnName);
             //大写开头的字段名称
@@ -237,7 +245,7 @@ public class GenUtil {
             listMap.put("dictName", column.getDictName());
             // 日期注解
             listMap.put("dateAnnotation", column.getDateAnnotation());
-            if (StringUtils.isNotBlank(column.getDateAnnotation())) {
+            if (StrUtil.isNotBlank(column.getDateAnnotation())) {
                 genMap.put("hasDateAnnotation", true);
             }
             // 添加非空字段信息
@@ -245,7 +253,7 @@ public class GenUtil {
                 isNotNullColumns.add(listMap);
             }
             // 判断是否有查询，如有则把查询的字段set进columnQuery
-            if (!StringUtils.isBlank(column.getQueryType())) {
+            if (!StrUtil.isBlank(column.getQueryType())) {
                 // 查询类型
                 listMap.put("queryType", column.getQueryType());
                 // 是否存在查询

@@ -39,5 +39,10 @@ public class JpaGeneratorTest {
         genConfigInfo.setAbsolutePath(absolutePath);
         //genConfigInfo.setPrefix("");是否去除表前缀
         generatorService.generator(genConfigInfo, columns);
+        //文件下载
+       /* HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
+        HttpServletResponse response = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getResponse();
+        generatorService.download(genConfigInfo, columns, request, response);*/
     }
+
 }
