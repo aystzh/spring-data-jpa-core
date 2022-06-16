@@ -57,7 +57,7 @@ public class ${className}ServiceImpl extends AbstractBaseApiServiceImpl implemen
 
     private ${className} findOneForUpdate(String id){
         ${className} ${changeClassName} = ${changeClassName}Repository.findOneForUpdate(id);
-        if (Objects.nonNull(${changeClassName})) {
+        if (Objects.isNull(${changeClassName})) {
             throw new BaseAppException(ResponseCode.FAIL.name());
         }
         return ${changeClassName};

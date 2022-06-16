@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @Api(tags = "${apiAlias}管理")
 @RequestMapping("/api/${changeClassName}")
+@Validated
 public class ${className}Controller {
 
     @Autowired
