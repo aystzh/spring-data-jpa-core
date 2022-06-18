@@ -1,4 +1,4 @@
-package aystzh.github.com.generator.tools;
+package aystzh.github.com.jpa.generator.tools;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;

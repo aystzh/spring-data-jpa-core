@@ -1,7 +1,7 @@
-package aystzh.github.com.generator.utils;
+package aystzh.github.com.jpa.generator.utils;
 
-import aystzh.github.com.generator.vo.ColumnInfo;
-import aystzh.github.com.generator.vo.GenConfigInfo;
+import aystzh.github.com.jpa.generator.vo.ColumnInfo;
+import aystzh.github.com.jpa.generator.vo.GenConfigInfo;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.template.*;
@@ -18,8 +18,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static aystzh.github.com.generator.tools.FileUtil.SYS_TEM_DIR;
 
 /**
  * 代码生成
@@ -75,7 +73,7 @@ public class GenUtil {
     public static String download(List<ColumnInfo> columns, GenConfigInfo GenConfigInfo) throws IOException {
         // 拼接的路径：/tmpeladmin-gen-temp/，这个路径在Linux下需要root用户才有权限创建,非root用户会权限错误而失败，更改为： /tmp/eladmin-gen-temp/
         // String tempPath =SYS_TEM_DIR + "eladmin-gen-temp" + File.separator + GenConfigInfo.getTableName() + File.separator;
-        String tempPath = SYS_TEM_DIR + "eladmin-gen-temp" + File.separator + GenConfigInfo.getTableName() + File.separator;
+        String tempPath = aystzh.github.com.jpa.generator.tools.FileUtil.SYS_TEM_DIR + "eladmin-gen-temp" + File.separator + GenConfigInfo.getTableName() + File.separator;
         Map<String, Object> genMap = getGenMap(columns, GenConfigInfo);
         TemplateEngine engine = TemplateUtil.createEngine(new TemplateConfig("template", TemplateConfig.ResourceMode.CLASSPATH));
         // 生成后端代码

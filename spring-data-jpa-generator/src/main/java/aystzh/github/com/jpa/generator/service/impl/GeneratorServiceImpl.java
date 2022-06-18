@@ -1,10 +1,10 @@
-package aystzh.github.com.generator.service.impl;
+package aystzh.github.com.jpa.generator.service.impl;
 
-import aystzh.github.com.generator.service.GeneratorService;
-import aystzh.github.com.generator.tools.FileUtil;
-import aystzh.github.com.generator.utils.GenUtil;
-import aystzh.github.com.generator.vo.ColumnInfo;
-import aystzh.github.com.generator.vo.GenConfigInfo;
+import aystzh.github.com.jpa.generator.service.GeneratorService;
+import aystzh.github.com.jpa.generator.tools.FileUtil;
+import aystzh.github.com.jpa.generator.utils.GenUtil;
+import aystzh.github.com.jpa.generator.vo.ColumnInfo;
+import aystzh.github.com.jpa.generator.vo.GenConfigInfo;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.ZipUtil;
 import lombok.RequiredArgsConstructor;

@@ -1,8 +1,8 @@
-package aystzh.github.com.generator.service;
+package aystzh.github.com.jpa.generator.service;
 
 
-import aystzh.github.com.generator.vo.ColumnInfo;
-import aystzh.github.com.generator.vo.GenConfigInfo;
+import aystzh.github.com.jpa.generator.vo.ColumnInfo;
+import aystzh.github.com.jpa.generator.vo.GenConfigInfo;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

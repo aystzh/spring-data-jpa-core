@@ -1,22 +1,19 @@
 package generate;
 
-import aystzh.github.com.generator.GeneratorApplication;
-import aystzh.github.com.generator.service.GeneratorService;
-import aystzh.github.com.generator.vo.ColumnInfo;
-import aystzh.github.com.generator.vo.GenConfigInfo;
+import aystzh.github.com.jpa.generator.GeneratorApplication;
+import aystzh.github.com.jpa.generator.service.GeneratorService;
+import aystzh.github.com.jpa.generator.vo.ColumnInfo;
+import aystzh.github.com.jpa.generator.vo.GenConfigInfo;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
 /**
  * Created by zhanghuan on 2022/5/28.
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = GeneratorApplication.class)
 @Slf4j
 public class JpaGeneratorTest {
@@ -24,6 +21,9 @@ public class JpaGeneratorTest {
     @Autowired
     private GeneratorService generatorService;
 
+    /**
+     * 代码生成测试  目前仅仅适配了mysql数据库 其他数据库需要开发
+     */
     @Test
     public void generateCode() {
         String tableName = "mnt_app";

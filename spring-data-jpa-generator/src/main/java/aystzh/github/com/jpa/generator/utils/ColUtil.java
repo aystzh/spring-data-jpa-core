@@ -1,4 +1,4 @@
-package aystzh.github.com.generator.utils;
+package aystzh.github.com.jpa.generator.utils;
 
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;

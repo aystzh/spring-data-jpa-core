@@ -1,4 +1,4 @@
-package aystzh.github.com.generator.vo;
+package aystzh.github.com.jpa.generator.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
