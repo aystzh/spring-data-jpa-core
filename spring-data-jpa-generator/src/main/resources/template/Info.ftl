@@ -1,4 +1,4 @@
-package ${package}.service.dto;
+package ${package}.dto.info;
 
 import lombok.Data;
 <#if hasTimestamp>
@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 * Created by ${author} on ${date}.
 **/
 @Data
-public class ${className}Info extends AbstractBaseApiBean {
+public class ${className}Info extends AbstractBaseInfo {
 <#if columns??>
     <#list columns as column>
 

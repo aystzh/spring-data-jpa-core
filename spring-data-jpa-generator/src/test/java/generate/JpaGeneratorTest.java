@@ -28,6 +28,10 @@ public class JpaGeneratorTest {
     public void generateCode() {
         String tableName = "mnt_app";
         String absolutePath = "/Users/zhanghuan/bmsmart/smart-components/component-search";
+        String packageName = "cn.com.bmsmart";
+        //modelName是某个业务模块的简化名称 如 system | search | content | ...
+        String modelName = "";
+        String packName = String.format("%s%s", packageName, modelName);
         List<ColumnInfo> columns = generatorService.getColumns(tableName);
         GenConfigInfo genConfigInfo = new GenConfigInfo();
         genConfigInfo.setTableName(tableName);
@@ -35,7 +39,7 @@ public class JpaGeneratorTest {
         genConfigInfo.setAuthor("aystzh");
         genConfigInfo.setCover(Boolean.TRUE);
         genConfigInfo.setModuleName("component-search-manage");
-        genConfigInfo.setPack("cn.com.bmsmart");
+        genConfigInfo.setPack(packName);
         genConfigInfo.setAbsolutePath(absolutePath);
         //genConfigInfo.setPrefix("");是否去除表前缀
         generatorService.generator(genConfigInfo, columns);

@@ -44,7 +44,7 @@ public class GenUtil {
     private static List<String> getAdminTemplateNames() {
         List<String> templateNames = new ArrayList<>();
         templateNames.add("Entity");
-        templateNames.add("Dto");
+        templateNames.add("Info");
         templateNames.add("Controller");
         templateNames.add("QueryCriteriaInfo");
         templateNames.add("Service");
@@ -313,18 +313,18 @@ public class GenUtil {
             return packagePath + "service" + File.separator + "impl" + File.separator + className + "ServiceImpl.java";
         }
 
-        if ("Dto".equals(templateName)) {
-            return packagePath + "service" + File.separator + "dto" + File.separator + className + "Info.java";
+        if ("Info".equals(templateName)) {
+            return packagePath + "dto" + File.separator + File.separator + "info" + File.separator + className + "Info.java";
         }
 
         if ("Repository".equals(templateName)) {
             return packagePath + "repository" + File.separator + className + "Repository.java";
         }
         if ("QueryCriteriaInfo".equals(templateName)) {
-            return packagePath + "service" + File.separator + "dto" + File.separator + "Q" + className + ".java";
+            return packagePath + "dto" + File.separator + "query" + File.separator + "Q" + className + ".java";
         }
         if ("Conditions".equals(templateName)) {
-            return packagePath + "service" + File.separator + "dto" + File.separator + className + "Conditions.java";
+            return packagePath + "dto" + File.separator + "conditions" + File.separator + className + "Conditions.java";
         }
 
         return null;

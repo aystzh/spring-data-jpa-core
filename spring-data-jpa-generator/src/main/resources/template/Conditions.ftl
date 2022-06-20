@@ -1,4 +1,4 @@
-package ${package}.service.dto;
+package ${package}.dto.conditions;
 
 import lombok.Data;
 <#if hasTimestamp>

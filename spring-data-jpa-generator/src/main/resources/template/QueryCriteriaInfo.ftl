@@ -1,4 +1,4 @@
-package ${package}.service.dto;
+package ${package}.dto.query;
 
 /**
 * Created by ${author} on ${date}.
